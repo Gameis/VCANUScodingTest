@@ -55,6 +55,54 @@ public class CodingTest_main {
 //    	int result = factorial(25);
 //    	System.out.println(result);
     	//---------------------4번문제-----------------------------------
+    	//---------------------5번문제-----------------------------------
+
+    	int[][] pond = {
+    			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    			{0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+    			{0, 0, 0, 1, 1, 1, 0, 0, 0, 0},
+    			{0, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+    			{0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    			{0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    			{0, 0, 1, 1, 1, 1, 1, 1, 0, 0},
+    			{0, 0, 0, 1, 1, 1, 1, 0, 0, 0},
+    			{0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+    			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    	};
+    	
+    	boolean count = true;
+    	
+    	while(count) {
+    		count = false;
+    		for(int i = 0; i < pond.length; i++) {
+        		if(i - 1 < 0 || i + 1 >= pond.length)
+        			continue;
+        		for(int j = 0; j < pond[i].length; j++) {
+        			
+        			if(j - 1 < 0 || j + 1 >= pond[i].length || pond[i][j] == 0)
+            			continue;
+        			
+        			if(pond[i-1][j] >= pond[i][j] 
+        					&& pond[i+1][j] >= pond[i][j] 
+        							&& pond[i][j-1] >= pond[i][j] 
+        									&& pond[i][j+1] >= pond[i][j]) {
+        				pond[i][j]++;
+        				count = true;
+        			}
+        		}
+        	}
+    	}
+    	
+    	
+    	
+    	for(int i = 0; i < pond.length; i++) {
+    		for(int j = 0; j < pond[i].length; j++) {
+    			System.out.print(" " + pond[i][j] + " ");
+    		}
+    		
+    		System.out.println();
+    	}
+    	//---------------------5번문제-----------------------------------
     }
     
     //3번문제
